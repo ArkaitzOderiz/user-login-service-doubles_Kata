@@ -2,13 +2,28 @@
 
 namespace UserLoginService\Application;
 
+use Exception;
+use UserLoginService\Domain\User;
+
 class UserLoginService
 {
     private array $loggedUsers = [];
 
-    public function manualLogin(): string
+    public function manualLogin(User $user): void
     {
-        return "user logged";
+        if(in_array($user, $this->loggedUsers)) {
+            throw new Exception('user logged');
+        }
+
+        $this->loggedUsers[] = $user;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLoggedUsers(): array
+    {
+        return $this->loggedUsers;
     }
 
 }
