@@ -40,5 +40,13 @@ final class UserLoginServiceTest extends TestCase
         $this->assertContains($user, $userLoginService->getLoggedUsers());
     }
 
+    /**
+     * @test
+     */
+    public function testName()
+    {
+
+    }
+
 
 }

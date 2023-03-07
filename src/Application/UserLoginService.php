@@ -4,11 +4,15 @@ namespace UserLoginService\Application;
 
 use Exception;
 use UserLoginService\Domain\User;
+use UserLoginService\Infrastructure\FacebookSessionManager;
 
 class UserLoginService
 {
     private array $loggedUsers = [];
 
+    /**
+     * @throws Exception
+     */
     public function manualLogin(User $user): void
     {
         if(in_array($user, $this->loggedUsers)) {
@@ -16,6 +20,13 @@ class UserLoginService
         }
 
         $this->loggedUsers[] = $user;
+    }
+
+    public function getExternalSessions(): int
+    {
+        $facebook = new FacebookSessionManager();
+        $rand = $facebook->getSessions();
+        return $rand;
     }
 
     /**
