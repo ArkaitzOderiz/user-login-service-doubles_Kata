@@ -32,6 +32,16 @@ class UserLoginService
         $this->loggedUsers[] = $user;
     }
 
+    public function login(string $userName, string $password): string
+    {
+        if($this->sessionManager->login($userName, $password)){
+            $user = new User($userName);
+            $this->loggedUsers[] = $user;
+            return "Login correcto";
+        }
+        return "Login incorrecto";
+    }
+
     public function getExternalSessions(): int
     {
         return $this->sessionManager->getSessions();
