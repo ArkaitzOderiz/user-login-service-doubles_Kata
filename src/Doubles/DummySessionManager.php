@@ -1,6 +1,6 @@
 <?php
 
-namespace UserLoginService\Infrastructure;
+namespace UserLoginService\Doubles;
 
 use UserLoginService\Application\SessionManager;
 
