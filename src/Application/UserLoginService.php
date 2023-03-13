@@ -13,7 +13,8 @@ class UserLoginService
     /**
      * @throws Exception
      */
-    public function manualLogin(User $user): void
+    public function
+    manualLogin(User $user): void
     {
         if(in_array($user, $this->loggedUsers)) {
             throw new Exception('user logged');
