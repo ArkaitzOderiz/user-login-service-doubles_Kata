@@ -9,6 +9,7 @@ use UserLoginService\Application\UserLoginService;
 use UserLoginService\Domain\User;
 use UserLoginService\Doubles\DummySessionManager;
 use UserLoginService\Doubles\StubSessionManager;
+use UserLoginService\Doubles\FakeSessionManager;
 
 final class UserLoginServiceTest extends TestCase
 {
@@ -59,7 +60,7 @@ final class UserLoginServiceTest extends TestCase
      */
     public function userIsCorrectlyLogged()
     {
-        $userLoginService = new UserLoginService(new StubSessionManager());
+        $userLoginService = new UserLoginService(new FakeSessionManager());
 
         $response = $userLoginService->login("name", "pass");
 
@@ -71,9 +72,9 @@ final class UserLoginServiceTest extends TestCase
      */
     public function userIsNotCorrectlyLogged()
     {
-        $userLoginService = new UserLoginService(new StubSessionManager());
+        $userLoginService = new UserLoginService(new FakeSessionManager());
 
-        $response = $userLoginService->login("name", "pass");
+        $response = $userLoginService->login("name2", "pass");
 
         $this->assertEquals("Login incorrecto", $response);
     }
