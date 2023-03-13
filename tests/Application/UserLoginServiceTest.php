@@ -7,6 +7,7 @@ namespace UserLoginService\Tests\Application;
 use PHPUnit\Framework\TestCase;
 use UserLoginService\Application\UserLoginService;
 use UserLoginService\Domain\User;
+use UserLoginService\Infrastructure\DummySessionManager;
 
 final class UserLoginServiceTest extends TestCase
 {
@@ -15,7 +16,7 @@ final class UserLoginServiceTest extends TestCase
      */
     public function errorIfUserIsAlreadyManuallyLoggedIn()
     {
-        $userLoginService = new UserLoginService();
+        $userLoginService = new UserLoginService(new DummySessionManager());
 
         $user = new User("name");
 
@@ -31,7 +32,7 @@ final class UserLoginServiceTest extends TestCase
      */
     public function userIsManuallyLoggedIn()
     {
-        $userLoginService = new UserLoginService();
+        $userLoginService = new UserLoginService(new DummySessionManager());
 
         $user = new User("name");
 

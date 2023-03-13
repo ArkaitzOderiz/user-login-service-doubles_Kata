@@ -8,13 +8,11 @@ class DummySessionManager implements SessionManager
 {
     public function login(string $userName, string $password): bool
     {
-        //Imaginad que esto en realidad realiza una llamada al API de Facebook
-        return rand(0, 1) == 1;
+        throw new Exception('This should not be used');
     }
 
     public function getSessions(): int
     {
-        //Imaginad que esto en realidad realiza una llamada al API de Facebook
-        return rand(0, 100);
+        throw new Exception('This should not be used');
     }
 }

@@ -9,6 +9,15 @@ use UserLoginService\Infrastructure\FacebookSessionManager;
 class UserLoginService
 {
     private array $loggedUsers = [];
+    private SessionManager $sessionManager;
+
+    /**
+     * @param SessionManager $sessionManager
+     */
+    public function __construct(SessionManager $sessionManager)
+    {
+        $this->sessionManager = $sessionManager;
+    }
 
     /**
      * @throws Exception
@@ -25,9 +34,7 @@ class UserLoginService
 
     public function getExternalSessions(): int
     {
-        $facebook = new FacebookSessionManager();
-        $rand = $facebook->getSessions();
-        return $rand;
+        return $this->sessionManager->getSessions();
     }
 
     /**
