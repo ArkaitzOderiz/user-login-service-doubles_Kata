@@ -7,7 +7,7 @@ namespace UserLoginService\Tests\Application;
 use PHPUnit\Framework\TestCase;
 use UserLoginService\Application\UserLoginService;
 use UserLoginService\Domain\User;
-use UserLoginService\Infrastructure\DummySessionManager;
+use UserLoginService\Doubles\DummySessionManager;
 
 final class UserLoginServiceTest extends TestCase
 {
