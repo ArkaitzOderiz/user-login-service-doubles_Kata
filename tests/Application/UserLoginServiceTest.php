@@ -58,7 +58,7 @@ final class UserLoginServiceTest extends TestCase
     /**
      * @test
      */
-    public function userIsCorrectlyLogged()
+    public function userIsCorrectlyLoggedExternaly()
     {
         $userLoginService = new UserLoginService(new FakeSessionManager());
 
@@ -70,7 +70,7 @@ final class UserLoginServiceTest extends TestCase
     /**
      * @test
      */
-    public function userIsNotCorrectlyLogged()
+    public function userIsNotCorrectlyLoggedExternaly()
     {
         $userLoginService = new UserLoginService(new FakeSessionManager());
 
