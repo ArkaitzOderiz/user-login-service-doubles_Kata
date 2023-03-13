@@ -6,13 +6,9 @@ use UserLoginService\Application\SessionManager;
 
 class FakeSessionManager implements SessionManager
 {
-
-    private string $userName = "name";
-    private string $password = "pass";
-
     public function login(string $userName, string $password): bool
     {
-        if($this->password == $password && $this->userName == $userName){
+        if($password == "pass" && $userName == "name"){
             return true;
         }
         return false;

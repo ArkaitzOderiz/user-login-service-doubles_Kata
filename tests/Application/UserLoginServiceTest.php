@@ -62,9 +62,12 @@ final class UserLoginServiceTest extends TestCase
     {
         $userLoginService = new UserLoginService(new FakeSessionManager());
 
+        $user = new User("name");
+
         $response = $userLoginService->login("name", "pass");
 
         $this->assertEquals("Login correcto", $response);
+        $this->assertContains($user, $userLoginService->getLoggedUsers());
     }
 
     /**
