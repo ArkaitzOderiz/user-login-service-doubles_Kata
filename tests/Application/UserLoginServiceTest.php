@@ -46,7 +46,11 @@ final class UserLoginServiceTest extends TestCase
      */
     public function testName()
     {
+        $userLoginService = new UserLoginService(new StubSessionManager());
 
+        $response = $userLoginService->getExternalSessions();
+
+        $this->assertEquals("12", $response);
     }
 
 
